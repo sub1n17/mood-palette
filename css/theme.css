@@ -1,0 +1,111 @@
+:root {
+    --color-bg: #ffffff;
+    --color-text: #1c1c1c;
+    --color-muted: #777;
+    --color-border: #e5e5e5;
+    --color-nav: #ababab;
+    --color-black: #000;
+    --color-white: #fff;
+    --color-newTitle: #333;
+    --border-scroll: #c7c7c7;
+    --bg-new: #fff;
+    --invert-img: invert(1);
+    --input-bg: #F2F2F2;
+    --input-border: #F2F2F2;
+    --button-primary-bg: #000;
+    --button-primary-text: #fff;
+    --button-new: #000;
+    --button-detail: #D4D3D3;
+    --button-secondary-bg: #f2f2f2;
+    --button-secondary-text: #000;
+    --toggle-bg: lightgray;
+    --toggle-active: #3ad84a;
+
+    --footer-bg: #fcfcfc;
+    --footer-logoTxt: #333;
+    --footer-owner: #555;
+    --footer-copy: #b0b0b0;
+}
+
+.dark {
+    --color-bg: #1c1c1c;
+    --color-text: #ffffff;
+    --color-muted: #c7c7c7;
+    --color-border: #333;
+    --color-nav: #888888;
+    --color-white: #000;
+    --color-black: #fff;
+    --color-newTitle: #C7C7C7;
+    --border-scroll: #c7c7c7;
+    --bg-new: #1C1C1C;
+    --border-scroll: #c7c7c7;
+    --invert-img: invert(0);
+    --input-bg: #000;
+    --input-border: #333;
+    --button-primary-bg: #f2f2f2;
+    --button-primary-text: #000;
+    --button-new: #333;
+    --button-detail: #333333;
+    --button-secondary-bg: #1C1C1C;
+    --button-secondary-text: #000;
+    --toggle-bg: #555;
+    --toggle-active: #3ad84a;
+    /* --footer-border: #f0f0f0; */
+    --footer-bg: #181818;
+    --footer-logoTxt: #fff;
+    --footer-owner: #b5b5b5;
+    --footer-copy: #8a8a8a;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+.dark_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dark_mode {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.dark_mode label {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+    color: var(--color-black);
+}
+
+.dark_mode input {
+    appearance: none;
+    width: 40px;
+    height: 24px;
+    background-color: var(--toggle-bg);
+    border-radius: 20px;
+    position: relative;
+}
+
+.dark_mode input::after {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    transition: all 0.3s;
+    border-radius: 50%;
+}
+
+.dark_mode input:checked::after {
+    transform: translateX(calc(100% - 2px - 2px));
+}
+
+.dark_mode input:checked {
+    background-color: #3ad84a;
+}

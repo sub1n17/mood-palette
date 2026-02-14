@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mood Palette</title>
+        <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="./css/theme.css" />
+        <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="./css/index_mob.css" />
+        <script src="./js/index.js"></script>
+        <script src="./js/theme.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header">
+                <p class="diary_title">🎨 Mood Palette</p>
+
+                <div class="dark_mode">
+                    <label for="dark">다크모드</label>
+                    <input type="checkbox" class="dark_toggle" id="dark" onclick="dark(event)" />
+                </div>
+            </div>
+
+            <img src="./images/banner.png" alt="" class="banner" />
+
+            <ul class="nav">
+                <li class="on" id="menuDiary" onclick="nav('diary')">일기보관함</li>
+                <li onclick="nav('pic')" id="menuPic">사진보관함</li>
+            </ul>
+            <div>
+                <div class="select_wrapper">
+                    <div class="select_inner">
+                        <div class="feel_search_wrapper">
+                            <div class="chk_wrapper">
+                                <input type="checkbox" id="feelScroll" class="input_chk" />
+                                <ul class="feel_ul">
+                                    <li>
+                                        <input
+                                            type="radio"
+                                            id="allFilter"
+                                            name="filterFeel"
+                                            value="all"
+                                            oninput="changeFeelTxt(event)"
+                                        />
+                                        <label for="allFilter">
+                                            <p>전체</p>
+                                            <img src="./images/feel_dropdown_checked.png" alt="" />
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input
+                                            type="radio"
+                                            id="happyFilter"
+                                            name="filterFeel"
+                                            value="happy"
+                                        />
+                                        <label for="happyFilter"
+                                            ><p>행복해요</p>
+                                            <img src="./images/feel_dropdown_checked.png" alt=""
+                                        /></label>
+                                    </li>
+                                    <li>
+                                        <input
+                                            type="radio"
+                                            id="sadFilter"
+                                            name="filterFeel"
+                                            value="sad"
+                                        />
+                                        <label for="sadFilter"
+                                            ><p>슬퍼요</p>
+                                            <img src="./images/feel_dropdown_checked.png" alt=""
+                                        /></label>
+                                    </li>
+                                    <li>
+                                        <input
+                                            type="radio"
+                                            id="surFilter"
+                                            name="filterFeel"
+                                            value="sur"
+                                        />
+                                        <label for="surFilter"
+                                            ><p>놀라워요</p>
+                                            <img src="./images/feel_dropdown_checked.png" alt=""
+                                        /></label>
+                                    </li>
+                                    <li>
+                                        <input
+                                            type="radio"
+                                            id="angFilter"
+                                            name="filterFeel"
+                                            value="ang"
+                                        />
+                                        <label for="angFilter"
+                                            ><p>화나요</p>
+                                            <img src="./images/feel_dropdown_checked.png" alt=""
+                                        /></label>
+                                    </li>
+                                    <li>
+                                        <input
+                                            type="radio"
+                                            id="etcFilter"
+                                            name="filterFeel"
+                                            value="etc"
+                                        />
+                                        <label for="etcFilter"
+                                            ><p>기타</p>
+                                            <img src="./images/feel_dropdown_checked.png" alt=""
+                                        /></label>
+                                    </li>
+                                </ul>
+                                <img src="./images/feel_dropdown.png" class="feel_arr" />
+                            </div>
+                            <div class="search_wrapper">
+                                <img src="./images/search.png" alt="" />
+                                <input
+                                    type="text"
+                                    id="searchInput"
+                                    placeholder="검색어를 입력해주세요."
+                                    oninput="search(event)"
+                                />
+                            </div>
+                        </div>
+                        <button id="modal_add" onclick="modalAdd()">
+                            <img src="./images/index_plus.png" />
+                            <p>일기 등록</p>
+                        </button>
+                    </div>
+                </div>
+                <!-- 사진보관함 select -->
+                <div class="select_wrapper pic_select" id="picSelect">
+                    <div class="pic_inner">
+                        <input type="checkbox" class="pic_chk" />
+                        <ul>
+                            <li>
+                                <input
+                                    type="radio"
+                                    id="normal"
+                                    name="ratio"
+                                    checked
+                                    onchange="ratio(event)"
+                                    value="기본형"
+                                />
+                                <label for="normal">
+                                    <p>기본형</p>
+                                    <img src="./images/feel_dropdown_checked.png" alt="" />
+                                </label>
+                            </li>
+                            <li>
+                                <input
+                                    type="radio"
+                                    id="horizontal"
+                                    name="ratio"
+                                    onchange="ratio(event)"
+                                    value="가로형"
+                                />
+                                <label for="horizontal">
+                                    <p>가로형</p>
+                                    <img src="./images/feel_dropdown_checked.png" alt="" />
+                                </label>
+                            </li>
+                            <li>
+                                <input
+                                    type="radio"
+                                    id="vertical"
+                                    name="ratio"
+                                    onchange="ratio(event)"
+                                    value="세로형"
+                                />
+                                <label for="vertical">
+                                    <p>세로형</p>
+                                    <img src="./images/feel_dropdown_checked.png" alt="" />
+                                </label>
+                            </li>
+                        </ul>
+                        <img src="./images/feel_dropdown.png" class="feel_arr" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="diary_wrapper" id="diaryWrapper">
+                <div id="diary_list"></div>
+                <div class="page_wrapper">
+                    <div onclick="prev()">
+                        <img src="./images/page_l.png" alt="" class="page_l" />
+                    </div>
+                    <div id="pagination"></div>
+                    <div onclick="next(startPage)">
+                        <img src="./images/page_r.png" alt="" class="page_r" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="pic_wrapper" id="picWrapper"></div>
+        </div>
+
+        <!-- 등록하기 모달창 -->
+        <div id="modal_wrapper">
+            <div class="m_bg" onclick="background()"></div>
+            <div class="write_wrapper" id="write_form">
+                <div class="dark_wrapper">
+                    <h2>📍 일기 쓰기</h2>
+                </div>
+                <div class="feel_wrapper">
+                    <h3>오늘 기분은 어땠나요?</h3>
+                    <div class="radio_wrapper">
+                        <div>
+                            <input type="radio" id="happy" name="writeFeel" value="happy" />
+                            <label for="happy">행복해요</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="sad" name="writeFeel" value="sad" />
+                            <label for="sad">슬퍼요</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="sur" name="writeFeel" value="sur" />
+                            <label for="sur">놀랐어요</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="ang" name="writeFeel" value="ang" />
+                            <label for="ang">화나요</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="etc" name="writeFeel" value="etc" />
+                            <label for="etc">기타</label>
+                        </div>
+                    </div>
+                    <p class="error" id="feelError"></p>
+                </div>
+                <div class="input_wrapper">
+                    <span>제목</span>
+                    <input type="text" placeholder="제목을 입력해주세요" id="title" />
+                    <p class="error" id="titleError"></p>
+                </div>
+                <div class="input_wrapper">
+                    <span>내용</span>
+                    <textarea placeholder="내용을 입력해주세요" id="content"></textarea>
+                    <p class="error" id="contentError"></p>
+                </div>
+                <div class="btn_wrapper">
+                    <button class="close_btn" id="close" onclick="openCancelModal()">닫기</button>
+                    <button class="go_btn" id="add" onclick="add()">등록하기</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 공통 모달 -->
+        <div id="commonModal" class="common_wrapper" style="display: none">
+            <div class="m_bg" onclick="closeModal()"></div>
+            <div class="modal_box">
+                <h2 id="modalTitle"></h2>
+                <p id="modalMessage"></p>
+                <div class="modal_btn_wrapper" id="modalButtons"></div>
+            </div>
+        </div>
+
+        <!-- 토스트 -->
+        <div id="toast" class="toast"></div>
+
+        <!-- 푸터 -->
+        <footer id="footer">
+            <div class="footer_inner">
+                <div class="footer_logo">
+                    <span class="logo_icon">🎨</span>
+                    <span class="logo_text">Mood Palette</span>
+                </div>
+                <div class="footer_info">
+                    <p class="owner">대표 : 최수빈</p>
+                    <p class="copy">Copyright © 2025. 수빈 Co., Ltd. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!--  TOP 버튼 -->
+        <div class="goTop_wrapper">
+            <img src="./images/gotoTop.png" alt="" id="goTop" />
+        </div>
+    </body>
+</html>

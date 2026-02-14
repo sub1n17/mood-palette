@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mood Palette</title>
+        <link rel="stylesheet" href="./css/theme.css" />
+        <link rel="stylesheet" href="./css/detail.css" />
+        <link rel="stylesheet" href="./css/index_mob.css" />
+        <script src="./js/detail.js"></script>
+        <script src="./js/theme.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="pc_nav">
+                    <p class="diary_title">🎨 Mood Palette</p>
+                    <div class="dark_mode">
+                        <label for="dark_pc">다크모드</label>
+                        <input
+                            type="checkbox"
+                            class="dark_toggle"
+                            id="dark_pc"
+                            onclick="dark(event)"
+                        />
+                    </div>
+                </div>
+                <div class="diary_title mob_nav">
+                    <a href="./index.html">
+                        <img src="./images/arr.png" />
+                        <p>일기 상세</p>
+                    </a>
+                    <div class="dark_mode">
+                        <label for="dark_mob">다크모드</label>
+                        <input
+                            type="checkbox"
+                            class="dark_toggle"
+                            id="dark_mob"
+                            onclick="dark(event)"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="detail_wrapper">
+                <h2 id="title"></h2>
+                <div class="detail_flex">
+                    <div class="feeling" id="feel">
+                        <img src="" alt="" id="feelImg" />
+                        <p id="feelTxt"></p>
+                    </div>
+                    <p id="date"></p>
+                </div>
+                <div class="content_wrapper">
+                    <span>내용</span>
+                    <div id="content"></div>
+                </div>
+            </div>
+            <div class="copy_wrapper">
+                <div class="copy_btn" onclick="toast()">
+                    <img src="./images/detail_copy.png" alt="" />
+                    <p>내용복사</p>
+                </div>
+            </div>
+            <div class="btn_wrapper">
+                <a id="edit_btn" onclick="edit()"> 수정 </a>
+                <a id="delete_btn" onclick="none()"> 삭제 </a>
+            </div>
+            <div class="comment_wrapper">
+                <h2>회고</h2>
+                <div class="input_wrapper">
+                    <input type="text" placeholder="회고를 남겨보세요." id="commentInput" />
+                    <button id="done" onclick="leave()">입력</button>
+                </div>
+            </div>
+            <div class="list_wrapper" id="listWrapper"></div>
+        </div>
+
+        <div class="add_cancel_wrapper cancel_wrapper" id="cancelWrapper">
+            <div class="m_bg"></div>
+            <div class="add_cancel_modal">
+                <h2>일기 삭제</h2>
+                <p>일기를 삭제하시겠어요?</p>
+                <div class="btn_wrapper">
+                    <button class="cancel_btn" onclick="cancelORdelete('continueWrite')">
+                        취소
+                    </button>
+                    <button class="yes_btn" onclick="cancelORdelete('cancelWrapper')">삭제</button>
+                </div>
+            </div>
+        </div>
+        <!-- 내용복사 클릭 시, 토스트 애니메이션 -->
+        <div class="toast_wrapper" id="toastTxt">
+            <p>내용이 복사되었습니다.</p>
+        </div>
+
+        <!-- 푸터 -->
+        <footer id="footer">
+            <div class="footer_inner">
+                <div class="footer_logo">
+                    <span class="logo_icon">🎨</span>
+                    <span class="logo_text">Mood Palette</span>
+                </div>
+                <div class="footer_info">
+                    <p class="owner">대표 : 최수빈</p>
+                    <p class="copy">Copyright © 2025. 수빈 Co., Ltd. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

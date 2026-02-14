@@ -1,0 +1,160 @@
+@media (max-width: 768px) {
+    html {
+        font-size: 55%;
+    }
+
+    .banner {
+        width: 100%;
+        height: 18rem;
+        object-fit: cover;
+        border-radius: 1.6rem;
+    }
+
+    .nav li {
+        font-size: 1.6rem;
+        padding: 0.8rem 0.4rem;
+    }
+
+
+    .write_wrapper {
+        width: 32rem;
+        height: 48rem;
+        overflow-y: scroll;
+    }
+
+    .write_wrapper h2 {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .input_wrapper {
+        margin-block: 2.5rem 1.5rem;
+    }
+
+    .radio_wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    }
+
+    #diary_list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.8rem;
+    }
+
+
+    /* detail */
+    .mob_nav {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .pc_nav {
+        display: none;
+    }
+
+    .mob_nav a {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        color: var(--color-black);
+    }
+
+    .mob_nav a img {
+        filter: invert(0);
+    }
+
+    .dark .mob_nav a img {
+        filter: invert(1);
+    }
+
+    #done {
+        width: 22%;
+    }
+
+    .cmt,
+    .date {
+        font-size: 1.4rem;
+    }
+
+    /* edit */
+    .edit_header {
+        padding-block: 0;
+        padding-top: 2rem;
+    }
+
+    .edit_wrapper {
+        margin-top: 4rem;
+    }
+
+
+
+    .footer_inner {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 30px;
+    }
+
+    .footer_info {
+        text-align: left;
+    }
+
+    /* 사진 보관함 */
+    .pic_wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* 일기보관함 검색바 */
+    .select_inner {
+        gap: 2rem;
+    }
+
+    .feel_search_wrapper {
+        flex: 1;
+    }
+
+
+
+
+}
+
+/* 모바일 */
+@media (max-width:480px) {
+    .nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        /* background: #fff; */
+        border-bottom: 1px solid #eee;
+    }
+
+    .select_inner {
+        flex-direction: column;
+        gap: 1.2rem;
+        align-items: flex-start;
+    }
+
+    .feel_search_wrapper {
+        width: 100%;
+        flex-direction: row;
+        gap: 0.8rem;
+    }
+
+    .search_wrapper {
+        flex: 1;
+        padding: 0.8rem 1.2rem;
+    }
+
+    #modal_add {
+        width: 100%;
+    }
+
+    .write_wrapper,
+    .modal_box {
+        width: calc(100% - 1.25rem - 1.25rem);
+        height: auto;
+    }
+
+
+}

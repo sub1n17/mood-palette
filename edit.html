@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mood Palette</title>
+        <link rel="stylesheet" href="./css/theme.css" />
+        <link rel="stylesheet" href="./css/edit.css" />
+        <link rel="stylesheet" href="./css/index_mob.css" />
+        <script src="./js/edit.js"></script>
+        <script src="./js/theme.js"></script>
+    </head>
+    <body>
+        <div class="container edit_container">
+            <div class="header edit_header">
+                <div class="pc_nav">
+                    <p class="diary_title">🎨 Mood Palette</p>
+                    <div class="dark_mode">
+                        <label for="dark_pc">다크모드</label>
+                        <input
+                            type="checkbox"
+                            class="dark_toggle"
+                            id="dark_pc"
+                            onclick="dark(event)"
+                        />
+                    </div>
+                </div>
+                <div class="diary_title mob_nav">
+                    <a onclick="goDetail()">
+                        <img src="./images/arr.png" />
+                        <p>일기 수정</p>
+                    </a>
+                    <div class="dark_mode">
+                        <label for="dark_mob">다크모드</label>
+                        <input
+                            type="checkbox"
+                            class="dark_toggle"
+                            id="dark_mob"
+                            onclick="dark(event)"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="edit_wrapper">
+                <div class="feel_wrapper">
+                    <h2>오늘 기분은 어땠나요?</h2>
+                    <div class="radio_wrapper">
+                        <div>
+                            <input type="radio" value="happy" id="happy" name="feel" oninput="" />
+                            <label for="happy">행복해요</label>
+                        </div>
+                        <div>
+                            <input type="radio" value="sad" id="sad" name="feel" />
+                            <label for="sad">슬퍼요</label>
+                        </div>
+                        <div>
+                            <input type="radio" value="sur" id="sur" name="feel" />
+                            <label for="sur">놀라워요</label>
+                        </div>
+                        <div>
+                            <input type="radio" value="ang" id="ang" name="feel" />
+                            <label for="ang">화나요</label>
+                        </div>
+                        <div>
+                            <input type="radio" value="etc" id="etc" name="feel" />
+                            <label for="etc">기타</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="txt_wrapper">
+                    <div class="title_wrapper">
+                        <p class="input_txt">제목</p>
+                        <input type="text" id="edit_title" />
+                    </div>
+                    <div class="content_wrapper">
+                        <p class="input_txt">내용</p>
+                        <textarea name="" id="edit_content"></textarea>
+                    </div>
+                </div>
+                <div class="btn_wrapper">
+                    <button class="cancel" onclick="cancel()">취소</button>
+                    <button class="edit" onclick="edit()">수정하기</button>
+                </div>
+            </div>
+            <div class="comment_wrapper">
+                <h2>회고</h2>
+                <div class="input_wrapper">
+                    <input
+                        type="text"
+                        placeholder="수정 중일 땐 회고를 작성할 수 없어요."
+                        disabled
+                    />
+                    <button disabled id="done">입력</button>
+                </div>
+            </div>
+            <div class="list_wrapper" id="listWrapper"></div>
+        </div>
+
+        <!-- 푸터 -->
+        <footer id="footer">
+            <div class="footer_inner">
+                <div class="footer_logo">
+                    <span class="logo_icon">🎨</span>
+                    <span class="logo_text">Mood Palette</span>
+                </div>
+                <div class="footer_info">
+                    <p class="owner">대표 : 최수빈</p>
+                    <p class="copy">Copyright © 2025. 수빈 Co., Ltd. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

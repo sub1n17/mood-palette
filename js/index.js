@@ -131,6 +131,7 @@ const add = () => {
 
     // 등록 모달 닫기
     document.getElementById('modal_wrapper').style.display = 'none';
+    document.body.classList.remove('no-scroll');
 
     // 토스트 표시
     showToast('등록되었습니다');

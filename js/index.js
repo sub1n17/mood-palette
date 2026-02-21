@@ -682,3 +682,9 @@ const next = () => {
         diaryPage(startPage);
     }
 };
+
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        location.reload();
+    }
+});

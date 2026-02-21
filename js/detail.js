@@ -44,6 +44,13 @@ window.onload = () => {
     showComment();
 };
 
+// 수정 후 뒤로가기로 상세페이지 렌더링할 때 이전 데이터를 메모리에서 복원하지 않게 하기
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        location.reload(); // 캐시에서 페이지를 복원했다면 강제 새로고침
+    }
+});
+
 const edit = () => {
     const query = location.search;
     const url = new URLSearchParams(query);
